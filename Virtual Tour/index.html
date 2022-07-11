@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Virtual Tour</title>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-event-set-component@4.2.1/dist/aframe-event-set-component.min.js"></script>
+
+    <script src="tour.js"></script>
+    <script src="cursorEvents.js"></script>
+    <script src="sideView.js"></script>
+  </head>
+  <body>
+    <a-scene id="main-scene">
+
+        <a-sky id = 'mainContainer' color = '#9fdaf5'></a-sky>
+
+        <a-entity id = 'places-container' cursor-event tour ></a-entity>
+
+        <a-entity id = 'side-view-container' side-view cursor-event raycaster></a-entity>
+
+        <a-camera id = 'camera' wasd-controls = 'enabled : true' >
+            <!-- App Title-->
+
+            <a-entity id = 'appTitle' position = '0 0.7 -1' 
+            text = '
+            font : exo2bold;
+            align : center;
+            width : 2.5 ;
+            color : black ;
+            value : Its Time to Travel Virtually !!
+            '
+            >
+        
+            <a-entity id = 'subTitle' position = '0 0.5 -1' 
+            text = '
+            font : dejavu;
+            align : center;
+            width : 1.5 ;
+            color : black ;
+            value : Travel Around The World ;
+            '
+            ></a-entity>
+
+          
+              
+            <a-entity 
+            id = 'camCursor'
+            raycaster
+            cursor 
+            position = '0 0 -1'
+            geometry = 'primitive : ring; radiusInner : 0.02 ; radiusOuter : 0.03'
+            material = 'color : white; shader : flat ;'
+            ></a-entity>
+
+        </a-camera>
+
+        
+
+    
+    </a-scene>
+  </body>
+</html>
